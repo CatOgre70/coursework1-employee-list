@@ -196,7 +196,7 @@ public class Main {
 
         minSalary = 100_000.00;
         ArrayList<Employee> employeeList1 = employeeBook.findAllEmployeesWithSalaryGreaterThan(minSalary);
-        if(employeeList1 != null){
+        if(employeeList1.size() != 0){
             System.out.println("Сотрудники с зарплатой больше, чем " + minSalary + " рублей");
             for (Employee e : employeeList1) {
                 System.out.println(e);
@@ -208,7 +208,7 @@ public class Main {
 
         maxSalary = 10_000.00;
         employeeList1 = employeeBook.findAllEmployeesWithSalaryLessThan(maxSalary);
-        if(employeeList != null){
+        if(employeeList1.size() != 0){
             System.out.println("Сотрудники с зарплатой меньше, чем " + maxSalary + " рублей");
             for (Employee e : employeeList1) {
                 System.out.println(e);

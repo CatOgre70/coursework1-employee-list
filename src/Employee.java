@@ -2,7 +2,7 @@ import java.util.Formatter;
 
 public class Employee {
 
-    private static int idIndex;
+    private static int idIndex = 0;
     private int id;
     private String name;
     private String middleName;

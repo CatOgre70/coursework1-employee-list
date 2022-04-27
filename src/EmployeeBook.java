@@ -45,8 +45,10 @@ public class EmployeeBook {
     public void removeByFullName(String name, String middleName, String secondName){
         for (int i = 0; i < employeeBook.size(); i++) {
             Employee e = employeeBook.get(i);
-            if(e.getName().equals(name) && e.getMiddleName().equals(middleName) && e.getSecondName().equals(secondName))
+            if(e.getName().equals(name) && e.getMiddleName().equals(middleName) && e.getSecondName().equals(secondName)) {
                 employeeBook.remove(i);
+                break;
+            }
         }
     }
 
@@ -176,11 +178,8 @@ public class EmployeeBook {
         for(Employee e : employeeBook)
             if(e.getSalary() >= minSalary)
                 employeeList.add(e);
-        if(employeeList.size() > 0){
-            return employeeList;
-        } else {
-            return null;
-        }
+
+        return employeeList;
 
     }
 
@@ -191,11 +190,8 @@ public class EmployeeBook {
         for(Employee e : employeeBook)
             if(e.getSalary() <= maxSalary)
                 employeeList.add(e);
-        if(employeeList.size() > 0){
-            return employeeList;
-        } else {
-            return null;
-        }
+
+        return employeeList;
 
     }
 
