@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class EmployeeBook {
 
-    private ArrayList<Employee> employeeBook;
+    private final ArrayList<Employee> employeeBook;
 
     public EmployeeBook(){
         employeeBook = new ArrayList<>();
@@ -36,10 +36,6 @@ public class EmployeeBook {
                 break;
             }
         }
-    }
-
-    public void removeByIndex(int index){
-        employeeBook.remove(index);
     }
 
     public void removeByFullName(String name, String middleName, String secondName){
@@ -144,14 +140,14 @@ public class EmployeeBook {
             throw new RuntimeException("Maximum salary in [" + Main.depBook.findNameById(departmentId) + "] not found");
     }
 
-    public void salaryIndexation(int percent){ // perсent shoud be integer >= 0
+    public void salaryIndexation(int percent){ // percent should be integer >= 0
         double ratio = 1 + (double) percent / 100;
         for(Employee e : employeeBook){
             e.setSalary(e.getSalary() * ratio);
         }
     }
 
-    public void salaryIndexation(int percent, int departmentId){ // perсent shoud be integer >= 0
+    public void salaryIndexation(int percent, int departmentId){ // percent should be integer >= 0
         if(!Main.depBook.isIdExist(departmentId))
             throw new IllegalArgumentException("Wrong argument departmentId in method EmployeeBook.salaryIndexation()");
         double ratio = 1 + (double) percent / 100;
@@ -196,36 +192,34 @@ public class EmployeeBook {
     }
 
     public void changeSalaryByFullName(String name, String middleName, String secondName, double newSalary){
-        for (int i = 0; i < employeeBook.size(); i++) {
-            Employee e = employeeBook.get(i);
-            if(e.getName().equals(name) && e.getMiddleName().equals(middleName) && e.getSecondName().equals(secondName))
-                employeeBook.get(i).setSalary(newSalary);
+        for (Employee e : employeeBook) {
+            if (e.getName().equals(name) && e.getMiddleName().equals(middleName) && e.getSecondName().equals(secondName))
+                e.setSalary(newSalary);
         }
     }
 
     public void changeSalaryById(int id, double newSalary){
-        for (int i = 0; i < employeeBook.size(); i++) {
-            if(employeeBook.get(i).getId() == id)
-                employeeBook.get(i).setSalary(newSalary);
+        for (Employee employee : employeeBook) {
+            if (employee.getId() == id)
+                employee.setSalary(newSalary);
         }
     }
 
     public void changeDepartmentByFullName(String name, String middleName, String secondName, int newDepartmentId){
         if(!Main.depBook.isIdExist(newDepartmentId))
             throw new IllegalArgumentException("Wrong argument newDepartmentId in method EmployeeBook.changeDepartmentByFullName()");
-        for (int i = 0; i < employeeBook.size(); i++) {
-            Employee e = employeeBook.get(i);
-            if(e.getName().equals(name) && e.getMiddleName().equals(middleName) && e.getSecondName().equals(secondName))
-                employeeBook.get(i).setDepartment(newDepartmentId);
+        for (Employee e : employeeBook) {
+            if (e.getName().equals(name) && e.getMiddleName().equals(middleName) && e.getSecondName().equals(secondName))
+                e.setDepartment(newDepartmentId);
         }
     }
 
     public void changeDepartmentById(int id, int newDepartmentId){
         if(!Main.depBook.isIdExist(newDepartmentId))
             throw new IllegalArgumentException("Wrong argument newDepartmentId in method EmployeeBook.changeDepartmentById()");
-        for (int i = 0; i < employeeBook.size(); i++) {
-            if(employeeBook.get(i).getId() == id)
-                employeeBook.get(i).setDepartment(newDepartmentId);
+        for (Employee employee : employeeBook) {
+            if (employee.getId() == id)
+                employee.setDepartment(newDepartmentId);
         }
     }
 

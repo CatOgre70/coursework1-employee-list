@@ -3,8 +3,8 @@ import java.util.Formatter;
 public class Department {
 
     private static int idIndex = 0;
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
 
     public Department(String name){
         this.name = name;

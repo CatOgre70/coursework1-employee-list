@@ -3,10 +3,10 @@ import java.util.Formatter;
 public class Employee {
 
     private static int idIndex = 0;
-    private int id;
-    private String name;
-    private String middleName;
-    private String secondName;
+    private final int id;
+    private final String name;
+    private final String middleName;
+    private final String secondName;
     private int department;
     private double salary;
 

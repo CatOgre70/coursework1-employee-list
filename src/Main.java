@@ -194,7 +194,6 @@ public class Main {
         newEmployeeBook.print(depId);
         System.out.println();
 
-        minSalary = 100_000.00;
         ArrayList<Employee> employeeList1 = employeeBook.findAllEmployeesWithSalaryGreaterThan(minSalary);
         if(employeeList1.size() != 0){
             System.out.println("Сотрудники с зарплатой больше, чем " + minSalary + " рублей");
@@ -206,7 +205,6 @@ public class Main {
         }
         System.out.println();
 
-        maxSalary = 10_000.00;
         employeeList1 = employeeBook.findAllEmployeesWithSalaryLessThan(maxSalary);
         if(employeeList1.size() != 0){
             System.out.println("Сотрудники с зарплатой меньше, чем " + maxSalary + " рублей");
@@ -339,14 +337,14 @@ public class Main {
             throw new RuntimeException("Maximum salary in [" + depBook.findNameById(departmentId) + "] not found");
     }
 
-    public static void salaryIndexation(Employee[] employeeArray, int percent){ // perсent shoud be integer >= 0
+    public static void salaryIndexation(Employee[] employeeArray, int percent){ // percent should be integer >= 0
         double ratio = 1 + (double) percent / 100;
         for(Employee e : employeeArray){
             e.setSalary(e.getSalary() * ratio);
         }
     }
 
-    public static void salaryIndexation(Employee[] employeeArray, int percent, int departmentId){ // perсent shoud be integer >= 0
+    public static void salaryIndexation(Employee[] employeeArray, int percent, int departmentId){ // percent should be integer >= 0
         if(!depBook.isIdExist(departmentId))
             throw new IllegalArgumentException("Wrong argument departmentId in static method Main.salaryIndexation()");
         double ratio = 1 + (double) percent / 100;
