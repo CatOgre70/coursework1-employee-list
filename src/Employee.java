@@ -74,7 +74,7 @@ public class Employee {
 
     public String toString(){
         Formatter f = new Formatter();
-        f.format("%3d : %-15s : %-15s : %-20s : %-30s : %11.2f", this.id, this.secondName, this.name,
+        f.format("%3d : %-15s : %-15s : %-20s : %-30s : %,11.2f", this.id, this.secondName, this.name,
                 this.middleName, Main.depBook.findNameById(this.department), this.salary);
         return f.toString();
     }
