@@ -7,6 +7,7 @@ public class EmployeeBook {
     public EmployeeBook(){
         employeeBook = new ArrayList<>();
     }
+    public EmployeeBook(int size) { employeeBook = new ArrayList<>(size); }
 
     public void add(Employee e){
         employeeBook.add(e);

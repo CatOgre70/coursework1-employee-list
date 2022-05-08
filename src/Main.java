@@ -10,11 +10,11 @@ public class Main {
         // Department book initialization
         String[] depNames = {"Отдел кадров", "Бухгалтерия", "Финансовый отдел", "Производственный отдел",
                             "Отдел логистики", "Отдел закупок", "Маркетинговый отдел", "Отдел продаж"};
-        depBook = new DepartmentBook(depNames);
+        depBook = new DepartmentBook(depNames, 10);
         depBook.print();
 
         // Employee book initialization
-        EmployeeBook employeeBook = new EmployeeBook();
+        EmployeeBook employeeBook = new EmployeeBook(20);
         employeeBook.add(new Employee("Иван", "Иванович", "Иванов", 0, 50_000));
         employeeBook.add(new Employee("Петр", "Иннокентьевич", "Петров", 0, 150_000));
         employeeBook.add(new Employee("Семен", "Семенович", "Горбунков", 1, 101_000));

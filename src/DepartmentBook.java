@@ -11,6 +11,14 @@ public class DepartmentBook {
         }
     }
 
+    public DepartmentBook(String[] array, int size) {
+        depList = new ArrayList<>(size);
+        for(String s : array) {
+            Department dep = new Department(s);
+            depList.add(dep);
+        }
+    }
+
     public int size(){
         return depList.size();
     }
